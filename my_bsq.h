@@ -10,8 +10,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#define MAX_SIZE 1000
-
 /*
     save positions of the largest square
     largest: size of largest square
@@ -28,11 +26,22 @@ typedef struct int_map{
     int **map;
     int size;
 } integer_map;
+#define MAX_LINE 1024
+
+// helper functions
+void *my_realloc(void *ptr, size_t size);
+char* my_strcat(char* dest, const char* src);
+char* my_strcpy(char* dest, const char* src);
+char* my_strncpy(char* dest, const char* src, size_t n);
+
+// read lines from file
+char *get_line(int fd);
+void init_my_readline();
 
 // handle map
-off_t FileSize(char* file_name);
-char* StoreMap(char* file_name);
-integer_map* CreateIntegerMap(char* map);
+void PrintMap(integer_map* map) ;
+int ParseMap(char* file_name);
+integer_map* StoreMap(char* file_name);
 
 // algorithm functions
 int GetMinimum(int first, int second, int third);

@@ -10,8 +10,9 @@ and with the help of the algorithm finds the biggest square inside. At the end t
 ## Description
 This project is divided in two major sections: <br>
 
-'handle_map.c' handles the map inputed by the user, it opens and read the file and converts it into a string map, once the map is in a string we can obtain the size of the whole square,<br>
-this allows me to convert this string into a 2D integer map based on 0s and 1s, the 0s represent the obstacles of the map while the 1s represent the free spaces. <br>
+'handle_map.c' handles the map inputed by the user, it opens and read the file and converts it into a 2D integer map based on 0s and 1s, the 0s represent the obstacles of the map while the 1s represent the free spaces. <br>
+I made the program faster by not storing the map into a string and doing it directly into a 2D integer map. <br>
+I also check for the ege case where we create the map and change the size at the beggining, the program compares the amount of lines to the size given at the beggining and evaluates which one is true.
 
 'my_bsq.c' implements the algorithm, it takes the 2D integer map and loops through it, finding where the largest possible square can be found, <br>
 once we have this information the only thing left is printing the result to the user. The result map would be the initial string map but the largest square will be represented by 'x'.
